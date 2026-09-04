@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Andres Alvarez · Portfolio</title>
+
+<!--
+  PLANTILLA LISTA — SOLO FALTA AGREGAR LOS LINKS.
+  Busca cada "href="#LINK-..."" de abajo y reemplázalo por la URL real.
+  Lista de placeholders a completar:
+
+    [HECHO] Cuban Art Across -> https://cuban-art-across.onrender.com/
+    [HECHO] Zettelkasten Explorer (ex "Thesaurus Linguae Latinae") -> https://zettelkasten-viewer.onrender.com/
+    #LINK-art-nouveau-gallery         -> URL de Art Nouveau Virtual Gallery
+    #LINK-ex-magazine                 -> URL de Ex Magazine
+    [HECHO] Art Nexa (ahora "Nexarte — Art Opportunities") -> https://nexarte-art-opportunities.vercel.app/
+    [HECHO] Raum Klima -> https://raum-klima-v2.vercel.app/ (+ link secundario al paper original en papers/)
+    #LINK-institutions                -> URL de Institutions
+    #LINK-github                      -> URL de tu perfil de GitHub (nav / contacto)
+    #LINK-linkedin                    -> URL de tu perfil de LinkedIn (nav / contacto)
+
+  El email de contacto ya está puesto (andy.itcampus@gmail.com) — cámbialo
+  si quieres usar otro para el portafolio público.
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..800;1,6..72,300..800&family=Public+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #faf7f0; color: #20262b; font-family: 'Public Sans', sans-serif; }
+  a { color: #2e6fb0; text-decoration: none; }
+  a:hover { color: #1f568c; }
+
+  @keyframes floaty { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-16px) rotate(3deg); } }
+  @keyframes floatySlow { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-22px) rotate(-4deg); } }
+
+  .wrap { max-width: 1280px; margin: 0 auto; overflow: hidden; }
+
+  .nav { display: flex; justify-content: space-between; align-items: center; padding: 28px 60px; border-bottom: 1px solid #eae4d8; flex-wrap: wrap; gap: 12px; }
+  .nav .brand { font-family: 'Newsreader', serif; font-size: 20px; font-weight: 600; font-style: italic; }
+  .nav .links { display: flex; gap: 30px; font-size: 14px; font-weight: 600; color: #5b6470; flex-wrap: wrap; }
+  .nav .links a { color: #5b6470; }
+  .nav .links a:hover { color: #2e6fb0; }
+
+  .hero { position: relative; padding: 88px 60px 72px; }
+  .hero .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #2e6fb0; margin-bottom: 28px; }
+  .hero h1 { font-family: 'Newsreader', serif; font-size: 118px; line-height: 0.9; font-weight: 400; letter-spacing: -0.01em; margin: 0; max-width: 9ch; }
+  .hero h1 em { font-style: italic; font-weight: 500; }
+  .hero p { font-size: 24px; line-height: 1.45; color: #4a555f; max-width: 30ch; margin: 36px 0 0; }
+  .hero img { position: absolute; top: 24px; right: 56px; width: 250px; height: auto; animation: floaty 10s ease-in-out infinite; pointer-events: none; }
+
+  .about { display: grid; grid-template-columns: 220px 1fr; gap: 48px; padding: 52px 60px; border-top: 1px solid #eae4d8; background: #fff; }
+  .label { font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #a09a8c; }
+  .about p { font-family: 'Newsreader', serif; font-size: 23px; line-height: 1.55; color: #2b3642; max-width: 60ch; margin: 0; }
+
+  .section { padding: 56px 60px 30px; border-top: 1px solid #eae4d8; }
+  .section-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 20px; }
+  .section-head h2 { font-family: 'Newsreader', serif; font-size: 34px; font-weight: 500; margin: 0; }
+  .section-head span { font-family: 'Space Mono', monospace; font-size: 12px; color: #a09a8c; }
+
+  .row { display: grid; grid-template-columns: 56px 64px 1fr 220px 96px; gap: 24px; align-items: center; padding: 20px 12px; border-top: 1px solid #eae4d8; cursor: pointer; transition: background .2s, padding .2s; text-decoration: none; color: inherit; }
+  .row:last-child { border-bottom: 1px solid #eae4d8; }
+  .row:hover { padding-left: 22px; }
+  .row.blue:hover { background: #eef3f9; }
+  .row.green:hover { background: #f1f8f4; }
+  .row .icon { width: 52px; height: 52px; border-radius: 13px; display: flex; align-items: center; justify-content: center; flex: 0 0 auto; }
+  .row.blue .icon { background: #e9f1fa; }
+  .row.green .icon { background: #e8f3ec; }
+  .row .num { font-family: 'Space Mono', monospace; font-size: 14px; }
+  .row.blue .num { color: #2e6fb0; }
+  .row.green .num { color: #3f8a63; }
+  .row .title { font-family: 'Newsreader', serif; font-size: 27px; font-weight: 500; color: #20262b; }
+  .row .desc { font-size: 15px; color: #6b7684; line-height: 1.4; }
+  .row .tag { font-family: 'Space Mono', monospace; font-size: 12px; color: #a09a8c; text-align: right; }
+
+  .writing { display: grid; grid-template-columns: 220px 1fr; gap: 48px; padding: 52px 60px; border-top: 1px solid #eae4d8; background: #fff; align-items: center; }
+  .writing-card { display: flex; justify-content: space-between; align-items: center; gap: 24px; text-decoration: none; color: inherit; }
+  .writing-card .title { font-family: 'Newsreader', serif; font-size: 32px; font-weight: 500; }
+  .writing-card .subtitle { font-family: 'Newsreader', serif; font-style: italic; font-size: 19px; color: #6b7684; margin-top: 8px; max-width: 40ch; }
+  .writing-card .icon { width: 76px; height: 76px; border-radius: 16px; background: #e9f1fa; display: flex; align-items: center; justify-content: center; flex: 0 0 auto; }
+
+  .contact { position: relative; padding: 80px 60px; border-top: 1px solid #eae4d8; background: #16202b; color: #fff; overflow: hidden; }
+  .contact .label { color: #7fb0e0; margin-bottom: 22px; }
+  .contact h2 { font-family: 'Newsreader', serif; font-size: 52px; line-height: 1.12; font-weight: 400; max-width: 16ch; margin: 0; }
+  .contact h2 em { font-style: italic; }
+  .contact a.email { display: inline-block; margin-top: 28px; font-size: 21px; border-bottom: 1px solid #7fb0e0; padding-bottom: 3px; color: #fff; }
+  .contact .socials { margin-top: 20px; display: flex; gap: 22px; font-family: 'Space Mono', monospace; font-size: 13px; }
+  .contact .socials a { color: #cfe0f0; }
+  .contact .socials a:hover { color: #fff; }
+  .contact img { position: absolute; right: -30px; bottom: -40px; width: 250px; height: auto; opacity: 0.92; animation: floaty 10s ease-in-out infinite; pointer-events: none; }
+
+  .footer { padding: 24px 60px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #a09a8c; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+
+  @media (max-width: 720px) {
+    .hero h1 { font-size: 64px; }
+    .hero img { display: none; }
+    .about, .writing { grid-template-columns: 1fr; }
+    .row { grid-template-columns: 40px 1fr; grid-template-areas: "icon title" "icon desc" "icon tag"; }
+    .row .num { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- nav -->
+  <div class="nav">
+    <div class="brand">Andres Alvarez</div>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#writing">Writing</a>
+      <a href="#contact">Contact</a>
+      <a href="#LINK-github" target="_blank" rel="noopener">GitHub</a>
+      <a href="#LINK-linkedin" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+
+  <!-- hero -->
+  <div class="hero">
+    <div class="eyebrow">Digital Humanities · Digital Cultural Heritage · Developer</div>
+    <h1>Andres <em>Alvarez</em></h1>
+    <p>Creation of digital tools for the preservation and dissemination of culture.</p>
+    <img src="assets/amphora-wireframe.svg" alt="Greek amphora wireframe">
+  </div>
+
+  <!-- about -->
+  <div class="about" id="about">
+    <div class="label">About</div>
+    <p>I work at the intersection of scholarship and software — building archives, virtual galleries, and reference tools that make cultural and linguistic heritage legible, searchable, and durable for the people who study and steward it.</p>
+  </div>
+
+  <!-- DH projects -->
+  <div class="section" id="projects">
+    <div class="section-head">
+      <h2>Digital Humanities &amp; Cultural Heritage</h2>
+      <span>03 — 05</span>
+    </div>
+
+    <a class="row blue" href="https://cuban-art-across.onrender.com/" target="_blank" rel="noopener">
+      <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2e6fb0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="#2e6fb0"></circle><circle cx="17.5" cy="10.5" r=".5" fill="#2e6fb0"></circle><circle cx="8.5" cy="7.5" r=".5" fill="#2e6fb0"></circle><circle cx="6.5" cy="12.5" r=".5" fill="#2e6fb0"></circle><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path></svg></div>
+      <span class="num">03</span>
+      <span class="title">Cuban Art Across</span>
+      <span class="desc">Digital archive of a diasporic art collection.</span>
+      <span class="tag">Archive</span>
+    </a>
+
+    <a class="row blue" href="https://zettelkasten-viewer.onrender.com/" target="_blank" rel="noopener">
+      <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2e6fb0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 6 6"></path><path d="m4 14 6-6 2-3"></path><path d="M2 5h12"></path><path d="M7 2h1"></path><path d="m22 22-5-10-5 10"></path><path d="M14 18h6"></path></svg></div>
+      <span class="num">04</span>
+      <span class="title">Zettelkasten Explorer</span>
+      <span class="desc">Lemma cards &amp; citations — TLL/MLW dataset demo (DE/EN).</span>
+      <span class="tag">Demo</span>
+    </a>
+
+    <a class="row blue" href="#LINK-art-nouveau-gallery" target="_blank" rel="noopener">
+      <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2e6fb0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></svg></div>
+      <span class="num">05</span>
+      <span class="title">Art Nouveau Virtual Gallery</span>
+      <span class="desc">Immersive 3D walkthrough of period works.</span>
+      <span class="tag">Gallery</span>
+    </a>
+  </div>
+
+  <!-- writing -->
+  <div class="writing" id="writing">
+    <div class="label">Writing</div>
+    <a class="writing-card" href="#LINK-ex-magazine" target="_blank" rel="noopener">
+      <div>
+        <div class="title">Ex Magazine</div>
+        <div class="subtitle">Essays on culture, memory, and the digital humanities.</div>
+      </div>
+      <div class="icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#2e6fb0" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18h-5"></path><path d="M18 14h-8"></path><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"></path><path d="M10 6h8v4h-8V6Z"></path></svg></div>
+    </a>
+  </div>
+
+  <!-- developer projects -->
+  <div class="section">
+    <div class="section-head">
+      <h2>Developer Projects</h2>
+      <span>03 — 10</span>
+    </div>
+
+    <a class="row green" href="https://nexarte-art-opportunities.vercel.app/" target="_blank" rel="noopener">
+      <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3f8a63" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"></line><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"></line></svg></div>
+      <span class="num">03</span>
+      <span class="title">Nexarte — Art Opportunities</span>
+      <span class="desc">Scraped &amp; AI-enriched global directory of residencies, grants and open calls for artists.</span>
+      <span class="tag">Web app</span>
+    </a>
+
+    <a class="row green" href="https://raum-klima-v2.vercel.app/" target="_blank" rel="noopener">
+      <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3f8a63" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="m19 9-5 5-4-4-3 3"></path></svg></div>
+      <span class="num">04</span>
+      <span class="title">Raum Klima</span>
+      <span class="desc">Global environmental dashboard (live temperature, humidity, air quality) &mdash; software reimagining of an original ESP8266/DHT22/MQ135 IoT project.</span>
+      <span class="tag">Web app</span>
+    </a>
+    <div style="margin: -10px 0 14px; padding-left: 20px;">
+      <a href="papers/Raum-Klima-IoT-Environmental-Monitoring.docx" target="_blank" rel="noopener" style="font-size: 12px; color: #6b7684;">Read the original hardware project report &rarr;</a>
+    </div>
+
+    <a class="row green" href="#LINK-institutions" target="_blank" rel="noopener">
+      <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3f8a63" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="3" x2="21" y1="22" y2="22"></line><line x1="6" x2="6" y1="18" y2="11"></line><line x1="10" x2="10" y1="18" y2="11"></line><line x1="14" x2="14" y1="18" y2="11"></line><line x1="18" x2="18" y1="18" y2="11"></line><polygon points="12 2 20 7 4 7"></polygon></svg></div>
+      <span class="num">10</span>
+      <span class="title">Institutions</span>
+      <span class="desc">Directory of partner cultural institutions.</span>
+      <span class="tag">Directory</span>
+    </a>
+  </div>
+
+  <!-- contact -->
+  <div class="contact" id="contact">
+    <div class="label">Contact</div>
+    <h2>Let's build something <em>that lasts.</em></h2>
+    <a class="email" href="mailto:andy.itcampus@gmail.com">andy.itcampus@gmail.com</a>
+    <div class="socials">
+      <a href="#LINK-github" target="_blank" rel="noopener">GitHub &rarr;</a>
+      <a href="#LINK-linkedin" target="_blank" rel="noopener">LinkedIn &rarr;</a>
+    </div>
+    <img src="assets/contact-illustration.png" alt="">
+  </div>
+
+  <div class="footer">
+    <span>&copy; 2026 Andres Alvarez</span>
+    <span>Digital Cultural Heritage</span>
+  </div>
+
+</div>
+</body>
+</html>
